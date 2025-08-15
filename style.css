@@ -1,0 +1,237 @@
+:root {
+    --bg: #0b1723;
+    --tile: #143049;
+    --tile-alt: #143a54;
+    --sun: #ffd166;
+    --accent: #6ee7b7;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", Arial;
+    color: #e6f1ff;
+    background: radial-gradient(1200px 800px at 70% -20%, #16324a 0%, var(--bg) 60%);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+}
+
+header,
+footer {
+    background: rgba(15, 33, 51, .7);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 16px;
+    margin: 0;
+    letter-spacing: .4px;
+    color: #cfe8ff
+}
+
+.hud {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #11273b;
+    border: 1px solid #234158;
+    padding: 6px 10px;
+    border-radius: 999px
+}
+
+.chip .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent)
+}
+
+.chip .sun {
+    background: var(--sun);
+    box-shadow: 0 0 10px var(--sun)
+}
+
+.btn {
+    cursor: pointer;
+    border: 1px solid #2a4d69;
+    background: #10283d;
+    color: #dff0ff;
+    border-radius: 10px;
+    padding: 8px 12px;
+    transition: .15s transform, .15s background
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    background: #14324a
+}
+
+.btn:disabled {
+    opacity: .55;
+    cursor: not-allowed
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px
+}
+
+main {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 12px;
+    padding: 0 16px 16px
+}
+
+.sidebar {
+    background: rgba(15, 33, 51, .6);
+    border: 1px solid #1f3a52;
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.palette-title {
+    font-weight: 600;
+    color: #cfe8ff;
+    font-size: 14px;
+    opacity: .9
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px
+}
+
+.card {
+    user-select: none;
+    border: 1px solid #2a4d69;
+    background: #0f2438;
+    border-radius: 12px;
+    padding: 10px;
+    min-height: 74px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    position: relative
+}
+
+.card:hover {
+    outline: 2px solid #2f6e9c
+}
+
+.card.selected {
+    outline: 2px solid var(--accent);
+    box-shadow: 0 0 0 3px rgba(110, 231, 183, .15) inset
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 13px
+}
+
+.cost {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #1f3a52;
+    border: 1px solid #2a4d69;
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-size: 12px
+}
+
+.legend {
+    font-size: 12px;
+    color: #9ec1df
+}
+
+.canvas-wrap {
+    position: relative;
+    background: #0a1a28;
+    border: 1px solid #1f3a52;
+    border-radius: 14px;
+    overflow: hidden
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(0deg, #0d2233, #0f2a40)
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none
+}
+
+.toast {
+    pointer-events: auto;
+    background: #0f2438;
+    border: 1px solid #2a4d69;
+    padding: 14px 16px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
+}
+
+.kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    background: #08131d;
+    border: 1px solid #22445e;
+    padding: 2px 6px;
+    border-radius: 6px
+}
+
+footer {
+    justify-content: center;
+    gap: 16px;
+    font-size: 13px;
+    color: #9ec1df;
+    padding: 8px
+}
+
+@media(max-width:920px) {
+    main {
+        grid-template-columns: 1fr
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
