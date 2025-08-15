@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Garden Defense — Plus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>🌱 Garden Defense — Plus (waves, pickups, SFX)</h1>
+        <div class="hud">
+            <div class="chip"><span class="dot sun"></span><span id="sunLabel">Sun: 10000</span></div>
+            <div class="chip"><span class="dot"></span><span id="waveLabel">Wave 1 / 5</span></div>
+            <button id="startBtn" class="btn">Start / Next Wave</button>
+            <button id="pauseBtn" class="btn">Pause</button>
+            <button id="resetBtn" class="btn">Reset</button>
+            <label class="toggle"><input type="checkbox" id="muteToggle" /> Mute</label>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <div class="palette-title">Plant Palette</div>
+            <div class="cards">
+                <div class="card" data-plant="peashooter">
+                    <div class="cost">100☀️</div>
+                    <h3>Peashooter</h3>
+                    <div class="legend">Shoots peas forward.</div>
+                </div>
+                <div class="card" data-plant="twinpea">
+                    <div class="cost">175☀️</div>
+                    <h3>Twin Pea</h3>
+                    <div class="legend">Two peas per volley.</div>
+                </div>
+                <div class="card" data-plant="sunflower">
+                    <div class="cost">50☀️</div>
+                    <h3>Sunflower</h3>
+                    <div class="legend">Generates sun automatically.</div>
+                </div>
+                <div class="card" data-plant="cherry">
+                    <div class="cost">150☀️</div>
+                    <h3>Cherry Bomb</h3>
+                    <div class="legend">1s arm → big boom.</div>
+                </div>
+                <div class="card" data-plant="wallnut">
+                    <div class="cost">50☀️</div>
+                    <h3>Wall-nut</h3>
+                    <div class="legend">Very sturdy blocker.</div>
+                </div>
+                <div class="card" data-plant="shovel">
+                    <h3>Shovel</h3>
+                    <div class="legend">Remove a plant.</div>
+                </div>
+            </div>
+            <div style="margin-top:8px; font-size:12px; color:#9ec1df; line-height:1.5">
+                Click a card, then click a tile to place. Click falling suns to collect ☀️. Sunflowers auto-add sun. Use
+                <span class="kbd">Shovel</span> to remove.
+            </div>
+        </aside>
+
+        <div class="canvas-wrap">
+            <canvas id="game" width="900" height="500"></canvas>
+            <div class="overlay" id="overlay" style="display:none">
+                <div class="toast" id="overlayText">Paused</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>Built with love by Rajat Verma ✨</div>
+    </footer>
+
+    <script src="game.js" defer></script>
+</body>
+
+</html>
